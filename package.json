@@ -1,0 +1,26 @@
+{
+  "name": "spotlite",
+  "version": "1.0.0",
+  "description": "Spotify Clone",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishnu-mkv/Spotlite.git"
+  },
+  "author": "Vishnu MK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishnu-mkv/Spotlite/issues"
+  },
+  "homepage": "https://github.com/vishnu-mkv/Spotlite#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
