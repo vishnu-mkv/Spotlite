@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 
-dotenv.config();
+dotenv.config({path : "../.env"});
 
 const app = express();
 app.use(cors());
@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 
 const getSpotify = () => {
     return new SpotifyWebApi({
-        redirectUri : `${process.env.REDIRECT_URI}:${process.env.PORT}`,
+        redirectUri : `${process.env.REDIRECT_URI}:${process.env.REACTPORT}`,
         clientId : process.env.CLIENT_ID,
         clientSecret : process.env.CLIENT_SECRET
     })
@@ -40,10 +40,8 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/login/refresh', (req, res) => {
-    const accessToken = req.body.accessToken;
     const refreshToken = req.body.refreshToken;
     const SpotifyApi = getSpotify();
-    SpotifyApi.setAccessToken(accessToken);
     SpotifyApi.setRefreshToken(refreshToken);
 
     SpotifyApi.refreshAccessToken().then((data) => {

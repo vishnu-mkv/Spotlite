@@ -1,0 +1,7 @@
+.player {
+  height: var(--player-height);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: var(--s-black);
+}

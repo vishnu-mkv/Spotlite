@@ -1,0 +1,60 @@
+.Navbar {
+  height: var(--navbar-height);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Navbar img {
+  height: 50px;
+  margin: auto 30px;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  margin: auto 20px;
+}
+
+.links a {
+  text-decoration: none;
+  outline: none;
+  margin: 0 10px;
+  color: gray;
+  transition: 200ms color ease-in;
+}
+
+.links a:hover {
+  color: white;
+}
+
+.links a li {
+  display: flex;
+}
+
+.links a li strong {
+  font-weight: normal;
+  font-size: 1em;
+  margin-left: 5px;
+}
+
+#user {
+  color: white;
+  font-size: 1em;
+  display: flex;
+  margin: auto 2em auto 1em;
+}
+
+#user strong {
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+#user img,
+#user svg {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0;
+  margin-right: 8px;
+}

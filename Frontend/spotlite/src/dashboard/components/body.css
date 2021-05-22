@@ -1,0 +1,4 @@
+.liked {
+  display: flex;
+  flex-direction: row;
+}

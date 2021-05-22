@@ -1,0 +1,20 @@
+.Login {
+  height: 100vh;
+  background-color: var(--s-black);
+  display: grid;
+  place-items: center;
+}
+
+.Login img {
+  width: 100%;
+  max-width: 750px;
+}
+
+.Login a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  background-color: var(--s-green);
+  padding: 12px;
+  border-radius: 12px;
+}

@@ -1,0 +1,11 @@
+.dashboard {
+  min-height: calc(100vh - var(--player-height));
+  /* since player is fixed content at bottom will be hidden */
+  /* so have a padding in bottom to push them up */
+  padding-bottom: var(--player-height);
+  background-attachment: fixed;
+}
+
+.content {
+  padding: 30px;
+}

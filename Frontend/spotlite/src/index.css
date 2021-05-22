@@ -8,3 +8,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+  --s-green: #1db954;
+  --s-black: #141414;
+  --s-violet: rgb(91, 87, 115);
+  --player-height: 90px;
+  --navbar-height: 100px;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: black;
+}
