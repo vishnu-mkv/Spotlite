@@ -1,0 +1,13 @@
+.typeToSearch {
+    width: 100vw;
+    height: 25vh;
+    color: white;
+    font-size: 1.2em;
+    display: flex;
+}
+
+.typeToSearch p {
+    margin: auto;
+    text-align: center;
+}
+

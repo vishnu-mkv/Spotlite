@@ -1,0 +1,48 @@
+.ArtistView {
+    padding: 1em;
+}
+
+.artist-header {
+    display: flex;
+    color: white;
+    margin: 1em auto 3em;
+    max-width: 1000px;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #313030;
+}
+
+.artist-header .MuiAvatar-root {
+    width: 150px;
+    height: 150px;
+    margin: auto 2em;
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.artist-info h2 {
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+.artist-info small {
+    color: gray;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.artist-result h2 {
+    color: white;
+    margin: 2em 1em 1.5em 1em;
+}
+
+.toptracks {
+    margin: 1em;
+}
+
+.toptracks h2 {
+    margin: 1em 0 1em 0;
+}

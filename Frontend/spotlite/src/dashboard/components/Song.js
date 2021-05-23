@@ -5,9 +5,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 function Song({index, track, activateLink}) {
 
-    const ID = track.id;
     const images = track.album.images;
-    let finalImage = null;
 
     let findSmallImage = (images) => {
         let min = images[0];
@@ -24,14 +22,20 @@ function Song({index, track, activateLink}) {
     return (
         <div className="Song">
             <div className="play-div">
-                <p className="song_no">{index+1}</p>
-                <button className="play">    <PlayArrowIcon />  </button>
+                <p className="song_no">{index + 1}</p>
+                <button className="play"><PlayArrowIcon/></button>
             </div>
             <div className="info">
-                <img className="track_img" src={findSmallImage(images).url} alt="" />
-                <div> 
+                <img className="track_img" src={findSmallImage(images).url} alt=""/>
+                <div>
                     <h3 className="song_name">{track.name}</h3>
-                    <small className="artist">{track.artists.map((artist) => artist.name).join(", ")}</small>
+                    <small className="artist">
+                        {track.artists.map((artist, index) =>
+                            <Link to={"/view/artist/" + artist.id}>
+                                {artist.name}{index < track.artists.length - 1 && ', '}
+                            </Link>
+                        )}
+                    </small>
                 </div>
             </div>
             <div className="album">

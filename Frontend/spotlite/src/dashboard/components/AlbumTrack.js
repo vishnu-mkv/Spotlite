@@ -3,22 +3,23 @@ import './AlbumTrack.css';
 import React from 'react'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
-function Song({track, index}) {
-
-    const ID = track.id;
+function AlbumTrack({track, index}) {
 
     let duration = track.duration_ms;
-    let mins = Math.floor(duration/60000);
-    let seconds = Math.floor((duration%60000) / 1000).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+    let mins = Math.floor(duration / 60000);
+    let seconds = Math.floor((duration % 60000) / 1000).toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+    });
 
     return (
         <div className="Song album-track">
             <div className="play-div">
-                <p className="song_no">{index+1}</p>
-                <button className="play">    <PlayArrowIcon />  </button>
+                <p className="song_no">{index + 1}</p>
+                <button className="play"><PlayArrowIcon/></button>
             </div>
             <div className="info">
-                <div> 
+                <div>
                     <h3 className="song_name">{track.name}</h3>
                     <small className="artist">{track.artists.map((artist) => artist.name).join(", ")}</small>
                 </div>
@@ -30,4 +31,4 @@ function Song({track, index}) {
     )
 }
 
-export default Song;
+export default AlbumTrack;

@@ -59,31 +59,33 @@
 }
 
 .track_img {
-  height: 48px;
-  margin-right: 15px;
+    height: 48px;
+    margin-right: 15px;
 }
 
 .artist {
-  font-size: 0.8em;
-  display: block;
-  margin: 5px 0 0;
+    font-size: 0.8em;
+    display: block;
+    margin: 5px 0 0;
+}
+
+.artist a {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
 }
 
 .album p,
 .album a {
-  font-size: 0.85em;
-  font-weight: 600;
+    font-size: 0.85em;
+    font-weight: 600;
 }
 
 .album a {
-  text-decoration: none;
-  outline: none;
-  color: gray;
-  transition: 200ms color ease-in;
-}
-
-.album a:hover {
-  color: white;
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+    transition: 200ms color ease-in;
 }
 
 .duration {

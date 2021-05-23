@@ -15,31 +15,40 @@
 }
 
 .list-info p {
-  margin: 0 0 10px;
-  font-size: 0.8em;
+    margin: 0 0 10px;
+    font-size: 0.8em;
 }
 
 .list-info h2 {
-  margin: 0 0 10px;
-  font-size: 3em;
+    margin: 0 0 10px;
+    font-size: 3em;
 }
 
 .list-info strong {
-  display: block;
-  margin: 10px 0 0;
-  font-size: 1em;
-  font-weight: 400;
-  color: gray;
+    display: block;
+}
+
+.list-info strong a {
+    padding-left: 2px;
+    text-decoration: none;
+}
+
+.list-info strong,
+.list-info strong a {
+    margin: 10px 0 0;
+    font-size: 1em;
+    font-weight: 400;
+    color: gray;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .list-header {
-  border-bottom: 1px solid white !important;
+    border-bottom: 1px solid white !important;
 }
 
 .list-header p {
@@ -81,12 +90,17 @@
 }
 
 .dock-play svg {
-  width: 52px;
-  height: 52px;
+    width: 52px;
+    height: 52px;
 }
 
 .header img {
-  height: 150px;
-  width: 150px;
-  object-fit: contain;
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
+}
+
+/*for liked songs icon image*/
+.icon {
+    margin: 0 !important;
 }

@@ -1,0 +1,9 @@
+.noResults {
+    color: white;
+    display: flex;
+    height: 4em;
+}
+
+p {
+    margin: auto;
+}

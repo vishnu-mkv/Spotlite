@@ -1,9 +1,7 @@
 import './playlistView.css';
-import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom';
-import { useDataLayerValue } from '../../data/DataLayer';
+import React, {useEffect, useState} from 'react'
+import {useParams} from 'react-router-dom';
 import Song from "./Song";
-import AlbumTrack from "./AlbumTrack";
 import LikedSongsImage from './LikedSongsImage';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
@@ -19,7 +17,6 @@ const spotify = new SpotifyApi()
 function PlaylistView({type}) {
 
     const {id} = useParams();
-    const [{ user, accessToken}, ] = useDataLayerValue();
     const [artists, setArtists] = useState(null);
     const [name, setName] = useState(null);
     const [count, setCount] = useState(null);
@@ -28,9 +25,9 @@ function PlaylistView({type}) {
     const [image, setImage] = useState(null);
 
     const playlist = UseGetPlaylist(id, type);
-    const nextSongs = type !== 'liked' ? UseGetAllData(spotify, type==='playlist'?spotify.getPlaylistTracks:spotify.getAlbumTracks, id, 100):[];
+    const nextSongs = type !== 'liked' ? UseGetAllData(spotify, spotify.getPlaylistTracks, id, 100) : [];
 
-    
+
     useEffect(() => {
 
         if (!playlist || Object.keys(playlist).length === 0) return;
@@ -43,7 +40,7 @@ function PlaylistView({type}) {
         setDescription(type==='playlist'?playlist.description:null);
 
     }, [playlist,id,type]);
-    
+
     useEffect(() => {
 
         if (!playlist?.tracks) return;
@@ -53,17 +50,17 @@ function PlaylistView({type}) {
         playlist.tracks.items.push(...nextSongs);
 
     }, [nextSongs]);
-    
-    $(document).scroll(function(){
-        var y = $(document).scrollTop();
-        var anchor = $('.list-header');
-        var dock = $('#dock');
 
-        if(anchor.length == 0 || dock.length == 0) return;
+    $(document).scroll(function () {
+        const y = $(document).scrollTop();
+        const anchor = $('.list-header');
+        const dock = $('#dock');
 
-        if(anchor.length && y > anchor.offset().top) {
+        if (anchor.length === 0 || dock.length === 0) return;
+
+        if (anchor.length && y > anchor.offset().top) {
             dock.css('display', 'flex');
-        }else{
+        } else {
             dock.css('display', 'none');
         }
     });
@@ -90,20 +87,18 @@ function PlaylistView({type}) {
                     <PlayCircleFilledIcon />
                 </button>
             </div>
-            
+
             {/* song list header */}
-            <div className={type==="album" ? "list-header Song album-track" : "list-header Song"}>
+            <div className="list-header Song">
                 <p id="s_num">#</p>
                 <p>TITLE</p>
-                {type!=="album" && <p>ALBUM</p>}
-                <p><AccessTimeIcon /></p>
+                {type !== "album" && <p>ALBUM</p>}
+                <p><AccessTimeIcon/></p>
             </div>
-            {type == "album" ? playlist?.tracks?.items?.map((song, index) => (
-                <AlbumTrack track={song} index={index}/>
-            )): playlist?.tracks?.items?.map((song, index) => (
-                <Song track={song.track} index={index}/>
-            ))
-            }
+            {playlist?.tracks?.items?.map((song, index) => (
+                <Song track={song.track} index={index} activateLink={true}/>
+            ))}
+
         </div>
         
     ) 
