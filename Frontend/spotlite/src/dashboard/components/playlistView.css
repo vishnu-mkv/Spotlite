@@ -101,6 +101,6 @@
 }
 
 /*for liked songs icon image*/
-.icon {
+.header > .icon {
     margin: 0 !important;
 }

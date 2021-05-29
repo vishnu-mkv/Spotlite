@@ -3,10 +3,9 @@ import Dashboard from './dashboard/Dashboard';
 import SpotifyApi from 'spotify-web-api-js';
 import Loading from './Loading';
 import UseAuth from './authentication/UseAuth';
-import { useEffect, useState } from 'react';
-import { useDataLayerValue } from './data/DataLayer';
+import {useEffect} from 'react';
+import {useDataLayerValue} from './data/DataLayer';
 import Player from './player/Player';
-import UseGetAllData from './data/UseGetAllData'
 import useGetAllData from './data/UseGetAllData';
 
 
@@ -15,8 +14,8 @@ const spotify = new SpotifyApi();
 
 function App() {
 
-  const [{accessToken}, dispatch] = useDataLayerValue();
-  var _accessToken = null, _playlists = [], _likedSongs = [], _likedPlaylists = []
+    const [{accessToken}, dispatch] = useDataLayerValue();
+    var _accessToken = accessToken, _playlists = [], _likedSongs = [], _likedPlaylists = []
 
   if (code) {
     _accessToken = UseAuth(code);

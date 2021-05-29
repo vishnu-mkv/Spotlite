@@ -10,12 +10,14 @@ import UseGetPlaylist from './UseGetPlaylist';
 import UseGetAllData from '../../data/UseGetAllData';
 import Image from './Image';
 import SpotifyApi from 'spotify-web-api-js';
+import {useDataLayerValue} from "../../data/DataLayer";
 
 
 const spotify = new SpotifyApi()
 
 function PlaylistView({type}) {
 
+    const [{}, dispatch] = useDataLayerValue();
     const {id} = useParams();
     const [artists, setArtists] = useState(null);
     const [name, setName] = useState(null);
@@ -27,12 +29,30 @@ function PlaylistView({type}) {
     const playlist = UseGetPlaylist(id, type);
     const nextSongs = type !== 'liked' ? UseGetAllData(spotify, spotify.getPlaylistTracks, id, 100) : [];
 
+    const playPlaylist = (offset) => {
+        if (!playlist) return;
+        let uris = [];
+
+        for (let i = 0; i < playlist.tracks.items.length; i++) {
+            uris.push(playlist.tracks.items[i].track.uri);
+        }
+
+        for (let i = 0; i < nextSongs.length; i++) {
+            uris.push(nextSongs[i].track.uri);
+        }
+
+        dispatch({
+            type: 'SET_CURRENTLY_PLAYING_LIST',
+            currentlyPlayingList: {uris: uris, offset: offset}
+        });
+    }
+
 
     useEffect(() => {
 
         if (!playlist || Object.keys(playlist).length === 0) return;
         setCount(playlist.tracks.total);
-        setCollaborative(playlist.type==='playlist'?playlist.collaborative:false);
+        setCollaborative(playlist.type === 'playlist' ? playlist.collaborative : false);
         setName(playlist.name);
         setDescription(playlist.description);
         setArtists(playlist.type === 'playlist' ? playlist.owner.display_name : playlist.artists.map(artist => artist.name).join(", "));
@@ -70,7 +90,7 @@ function PlaylistView({type}) {
         <div className="playlist content">
             <div id="dock">
                 <button className="play-playlist dock-play">
-                    <PlayCircleFilledIcon />
+                    <PlayCircleFilledIcon onClick={() => playPlaylist(0)}/>
                 </button>
                 <h2 id="title-dock">{name}</h2>
             </div>
@@ -84,7 +104,7 @@ function PlaylistView({type}) {
                     <strong>{count} SONGS - {artists}</strong>
                 </div>
                 <button className="play-playlist">
-                    <PlayCircleFilledIcon />
+                    <PlayCircleFilledIcon onClick={() => playPlaylist(0)}/>
                 </button>
             </div>
 
@@ -96,7 +116,7 @@ function PlaylistView({type}) {
                 <p><AccessTimeIcon/></p>
             </div>
             {playlist?.tracks?.items?.map((song, index) => (
-                <Song track={song.track} index={index} activateLink={true}/>
+                <Song track={song.track} index={index} activateLink={true} playTrack={playPlaylist}/>
             ))}
 
         </div>

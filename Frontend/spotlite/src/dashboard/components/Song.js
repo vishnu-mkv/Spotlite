@@ -2,10 +2,12 @@ import './song.css';
 import React from 'react'
 import {Link} from 'react-router-dom';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import {useDataLayerValue} from "../../data/DataLayer";
 
-function Song({index, track, activateLink}) {
+function Song({index, track, activateLink, playTrack}) {
 
     const images = track.album.images;
+    const [{}, dispatch] = useDataLayerValue();
 
     let findSmallImage = (images) => {
         let min = images[0];
@@ -16,14 +18,25 @@ function Song({index, track, activateLink}) {
     }
 
     let duration = track.duration_ms;
-    let mins = Math.floor(duration/60000);
-    let seconds = Math.floor((duration%60000) / 1000).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
+    let mins = Math.floor(duration / 60000);
+    let seconds = Math.floor((duration % 60000) / 1000).toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+    });
+
+    function playOnlyMe() {
+        dispatch({
+            type: 'SET_CURRENTLY_PLAYING_LIST',
+            currentlyPlayingList: {uris: [track.uri], offset: 0}
+        });
+    }
 
     return (
         <div className="Song">
             <div className="play-div">
                 <p className="song_no">{index + 1}</p>
-                <button className="play"><PlayArrowIcon/></button>
+                <button className="play"><PlayArrowIcon onClick={() => playTrack ? playTrack(index) : playOnlyMe()}/>
+                </button>
             </div>
             <div className="info">
                 <img className="track_img" src={findSmallImage(images).url} alt=""/>

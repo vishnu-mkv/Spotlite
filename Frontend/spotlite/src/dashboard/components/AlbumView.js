@@ -1,5 +1,5 @@
 import './playlistView.css';
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Link, useParams} from 'react-router-dom';
 import AlbumTrack from "./AlbumTrack";
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -7,17 +7,27 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import $ from 'jquery';
 import UseGetPlaylist from './UseGetPlaylist';
 import Image from './Image';
-import './AlbumTrack.css'
+import './AlbumTrack.css';
+import {useDataLayerValue} from "../../data/DataLayer";
 
 
 function AlbumView() {
 
     const {id} = useParams();
     const album = UseGetPlaylist(id, "album");
+    const [{}, dispatch] = useDataLayerValue();
 
-    useEffect(() => {
-        console.log(album);
-    }, [album]);
+    const playAlbum = (offset) => {
+        if (!album) return;
+        let uris = [];
+        for (let i = 0; i < album.tracks.items.length; i++) {
+            uris.push(album.tracks.items[i].uri);
+        }
+        dispatch({
+            type: 'SET_CURRENTLY_PLAYING_LIST',
+            currentlyPlayingList: {uris: uris, offset: offset}
+        });
+    }
 
 
     $(document).scroll(function () {
@@ -39,7 +49,7 @@ function AlbumView() {
         <div className="playlist content">
             <div id="dock">
                 <button className="play-playlist dock-play">
-                    <PlayCircleFilledIcon/>
+                    <PlayCircleFilledIcon onClick={() => playAlbum(0)}/>
                 </button>
                 <h2 id="title-dock">album.name</h2>
             </div>
@@ -58,7 +68,7 @@ function AlbumView() {
                     </strong>
                 </div>
                 <button className="play-playlist">
-                    <PlayCircleFilledIcon/>
+                    <PlayCircleFilledIcon onClick={() => playAlbum(0)}/>
                 </button>
             </div>
             {/* song list header */}
@@ -68,7 +78,7 @@ function AlbumView() {
                 <p><AccessTimeIcon/></p>
             </div>
             {album?.tracks?.items?.map((song, index) => (
-                <AlbumTrack track={song} index={index}/>
+                <AlbumTrack track={song} index={index} playTrack={playAlbum}/>
             ))}
         </div>
     );

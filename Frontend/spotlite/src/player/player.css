@@ -1,7 +1,23 @@
 .player {
-  height: var(--player-height);
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background-color: var(--s-black);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    background-color: var(--s-black);
+
+}
+
+.player:first-child {
+    width: 98vw;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif !important;
+}
+
+.player span {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.__196km70 p:last-child {
+    font-weight: 400;
+    font-size: 0.7em !important;
 }

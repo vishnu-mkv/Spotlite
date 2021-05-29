@@ -1,4 +1,30 @@
-.liked {
-  display: flex;
-  flex-direction: row;
+.liked, .my-playlist, .my-recent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+}
+
+.body h2 {
+    color: white;
+    padding-left: 0.5em;
+    margin-bottom: 1.3em;
+    font-weight: 600;
+}
+
+#dashboard h1 {
+    font-weight: 600;
+    font-size: 1.7em;
+    color: white;
+    margin: 1em -1em;
+    padding: 2em 1.3em;
+    background: linear-gradient(to right, var(--s-green), #000);
+}
+
+#dashboard {
+    padding-top: 0;
+}
+
+#dashboard .playlistContainer {
+    margin: 3px 1em;
 }

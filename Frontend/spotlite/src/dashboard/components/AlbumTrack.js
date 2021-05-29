@@ -2,8 +2,12 @@ import './song.css';
 import './AlbumTrack.css';
 import React from 'react'
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import {useDataLayerValue} from "../../data/DataLayer";
 
-function AlbumTrack({track, index}) {
+
+function AlbumTrack({track, index, playTrack}) {
+
+    const [{}, dispatch] = useDataLayerValue();
 
     let duration = track.duration_ms;
     let mins = Math.floor(duration / 60000);
@@ -12,11 +16,19 @@ function AlbumTrack({track, index}) {
         useGrouping: false
     });
 
+    function playOnlyMe() {
+        dispatch({
+            type: 'SET_CURRENTLY_PLAYING_LIST',
+            currentlyPlayingList: {uris: [track.uri], offset: 0}
+        });
+    }
+
     return (
         <div className="Song album-track">
             <div className="play-div">
                 <p className="song_no">{index + 1}</p>
-                <button className="play"><PlayArrowIcon/></button>
+                <button className="play" onClick={() => playTrack ? playTrack(index) : playOnlyMe()}><PlayArrowIcon/>
+                </button>
             </div>
             <div className="info">
                 <div>

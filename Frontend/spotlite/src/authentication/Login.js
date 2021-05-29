@@ -10,7 +10,8 @@ const scopes = [
     "user-read-playback-state",
     "user-modify-playback-state",
     "playlist-read-private",
-    "playlist-read-collaborative"
+    "playlist-read-collaborative",
+    "user-read-recently-played"
 ];
 const client_id = 'de0de556859645f9a8a25f460c0a73c5';
 const redirect_uri = 'http://localhost:3000';

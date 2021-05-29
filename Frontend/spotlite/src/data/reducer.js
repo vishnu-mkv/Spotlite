@@ -3,9 +3,10 @@ export const initialState = {
     accessToken: null,
     playlists: [],
     playing: false,
-    currentlyPlaying: null,
     likedSongs: [],
     likedPlaylists: [],
+    isPlayingList: false,
+    currentlyPlaying: [],
 }
 
 const reducer = (state, action) => {
@@ -22,6 +23,10 @@ const reducer = (state, action) => {
             return {...state, likedSongs: action.likedSongs};
         case 'SET_LIKED_PLAYLISTS':
             return {...state, likedPlaylists: action.likedPlaylists};
+        case 'SET_IS_PLAYING':
+            return {...state, isPlaying: action.isPlaying};
+        case 'SET_CURRENTLY_PLAYING_LIST':
+            return {...state, currentlyPlayingList: action.currentlyPlayingList};
         default:
             return state;
     }
