@@ -16,7 +16,7 @@ const scopes = [
 const client_id = 'de0de556859645f9a8a25f460c0a73c5';
 const redirect_uri = 'https://spotlite.netlify.app/';
 const endpoint = 'https://accounts.spotify.com/authorize';
-export const AUTH_URL = `${endpoint}?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&scope=${scopes.join("%20")}`
+export const AUTH_URL = `${endpoint}?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&scope=${scopes.join("%20")}&show_dialog=true`
 
 function Login() {
 
