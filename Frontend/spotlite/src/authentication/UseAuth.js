@@ -14,7 +14,7 @@ function UseAuth(code) {
     }
 
     useEffect(() => {
-        axios.post('http://localhost:3001/login', {code})
+        axios.post('https://spotlite-node.herokuapp.com/login', {code})
         .then(res =>{
             setData(res.data);
             window.history.pushState({}, null, '/')
@@ -26,7 +26,7 @@ function UseAuth(code) {
         if(!refreshToken | !expiresIn) return;
         
         const interval = setInterval(() => {
-            axios.post('http://localhost:3001/login/refresh', {refreshToken})
+            axios.post('https://spotlite-node.herokuapp.com/login/refresh', {refreshToken})
             .then(res => setData(res.data))
             .catch(err => window.location = '/');
         }, (expiresIn - 60)*1000);
