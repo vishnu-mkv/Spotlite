@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 
-dotenv.config({path : "../.env"});
+dotenv.config({path : ".env"});
 
 const app = express();
 app.use(cors());
