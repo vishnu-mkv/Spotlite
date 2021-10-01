@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 
 const getSpotify = () => {
     return new SpotifyWebApi({
-        redirectUri : `${process.env.REDIRECT_URI}:${process.env.REACTPORT}`,
+        redirectUri : process.env.REDIRECT_URI,
         clientId : process.env.CLIENT_ID,
         clientSecret : process.env.CLIENT_SECRET
     })
@@ -57,3 +57,4 @@ app.post('/login/refresh', (req, res) => {
 });
 
 app.listen(process.env.PORT);
+console.log("listening", process.env.PORT);
