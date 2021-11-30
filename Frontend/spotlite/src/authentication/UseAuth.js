@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios';
 
 function UseAuth(code) {
-    
+
     const [accessToken, setAccessToken] = useState(null);
-    const [refreshToken, setRefreshToken] = useState(null);   
-    const [expiresIn, setExpiresIn] = useState(null); 
+    const [refreshToken, setRefreshToken] = useState(null);
+    const [expiresIn, setExpiresIn] = useState(null);
+
+    const url = "https://spotlite-node.herokuapp.com";
 
     const setData = (data) => {
         setAccessToken(data.accessToken);
@@ -14,21 +16,21 @@ function UseAuth(code) {
     }
 
     useEffect(() => {
-        axios.post('https://spotlite-node.herokuapp.com/login', {code})
-        .then(res =>{
-            setData(res.data);
-            window.history.pushState({}, null, '/')
-        })
-        .catch(err => window.location = '/');
+        axios.post(`${url}/login`, {code})
+            .then(res => {
+                setData(res.data);
+                window.history.pushState({}, null, '/')
+            })
+            .catch(() => window.location = '/');
     }, [code]);
 
     useEffect(() => {
-        if(!refreshToken | !expiresIn) return;
+        if (!refreshToken || !expiresIn) return;
         
         const interval = setInterval(() => {
-            axios.post('https://spotlite-node.herokuapp.com/login/refresh', {refreshToken})
-            .then(res => setData(res.data))
-            .catch(err => window.location = '/');
+            axios.post(`${url}/login/refresh`, {refreshToken})
+                .then(res => setData(res.data))
+                .catch(() => window.location = '/');
         }, (expiresIn - 60)*1000);
 
         return () => clearInterval(interval);

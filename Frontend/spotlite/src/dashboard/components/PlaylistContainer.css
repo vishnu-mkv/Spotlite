@@ -1,27 +1,27 @@
 .playlistContainer a {
-  color: white;
-  text-decoration: none;
-  width: 150px;
-  height: 175px;
-  overflow: hidden;
-  display: grid;
+    color: white;
+    text-decoration: none;
+    width: 7em;
+    max-height: 10em;
+    overflow: hidden;
+    display: grid;
 }
 
 /* for liked songs icon */
 .playlistContainer a img,
 .icon {
-  width: 125px;
-  height: 125px;
-  object-fit: cover;
-  margin: auto;
+    width: 6em;
+    height: 6em;
+    object-fit: cover;
+    margin: auto;
 }
 
 .playlistContainer {
-  width: 150px;
-  height: 200px;
+    width: 7em;
+    height: 10em;
 }
 
 .playlistContainer p {
-  margin: 5px auto;
-  text-align: center;
+    margin: 5px auto;
+    text-align: center;
 }

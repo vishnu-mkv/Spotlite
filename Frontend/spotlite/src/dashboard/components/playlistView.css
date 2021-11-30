@@ -11,7 +11,6 @@
 
 .list-info {
   margin-top: auto;
-  margin-left: 40px;
 }
 
 .list-info p {
@@ -35,8 +34,8 @@
 
 .list-info strong,
 .list-info strong a {
-    margin: 10px 0 0;
-    font-size: 1em;
+    margin: 0.7em 0 0;
+    font-size: 0.8em;
     font-weight: 400;
     color: gray;
 }
@@ -44,7 +43,9 @@
 .header {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 1.5em;
+    padding: 1em;
+    gap: 2.5em;
 }
 
 .list-header {
@@ -66,12 +67,12 @@
 }
 
 .play-playlist svg {
-  position: absolute;
-  width: 72px;
-  height: 72px;
-  color: var(--s-green);
-  top: -10px;
-  left: -10px;
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    color: var(--s-green);
+    top: -10px;
+    left: -10px;
 }
 
 #dock {
@@ -84,23 +85,53 @@
 }
 
 .dock-play {
-  margin: auto 30px auto -1px;
-  width: 30px;
-  height: 30px;
+    margin: auto 2em auto -1px;
+    width: 2em;
+    height: 2em;
+    margin-left: 1em;
+
 }
 
 .dock-play svg {
-    width: 52px;
-    height: 52px;
+    width: 2em;
+    height: 2em;
 }
 
 .header img {
-    height: 150px;
-    width: 150px;
+    height: 10em;
+    width: 10em;
     object-fit: contain;
+    margin: auto 0;
 }
 
 /*for liked songs icon image*/
 .header > .icon {
     margin: 0 !important;
+}
+
+@media screen and (max-width: 500px) {
+
+    .list-info h2 {
+        font-size: 1.5em;
+    }
+
+    .header img {
+        height: 7em;
+        width: 7em;
+    }
+
+    .header {
+        gap: 1em;
+    }
+
+
+    .play-playlist {
+        width: 25px;
+        height: 25px;
+    }
+
+    .play-playlist svg {
+        height: 2em;
+        width: 2em;
+    }
 }

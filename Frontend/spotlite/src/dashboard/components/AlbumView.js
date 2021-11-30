@@ -51,7 +51,7 @@ function AlbumView() {
                 <button className="play-playlist dock-play">
                     <PlayCircleFilledIcon onClick={() => playAlbum(0)}/>
                 </button>
-                <h2 id="title-dock">album.name</h2>
+                <h2 id="title-dock">{album.name}</h2>
             </div>
             <div className="header">
                 <Image url={album.images[0]?.url}/>

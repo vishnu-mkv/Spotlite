@@ -1,60 +1,79 @@
 .Navbar {
-  height: var(--navbar-height);
-  display: flex;
-  justify-content: space-between;
+    height: var(--navbar-height);
+    display: flex;
+    justify-content: space-between;
 }
 
 .Navbar img {
-  height: 50px;
-  margin: auto 30px;
+    height: 3.2em;
+    margin: auto 1.5em;
 }
 
 .links {
-  list-style: none;
-  display: flex;
-  margin: auto 20px;
+    list-style: none;
+    display: flex;
+    margin: auto 1.3em;
+    justify-content: flex-end;
 }
 
 .links a {
-  text-decoration: none;
-  outline: none;
-  margin: 0 10px;
-  color: gray;
-  transition: 200ms color ease-in;
+    text-decoration: none;
+    outline: none;
+    margin: 0 0.8em;
+    color: gray;
+    transition: 200ms color ease-in;
 }
 
 .links a:hover {
-  color: white;
+    color: white;
 }
 
 .links a li {
-  display: flex;
+    display: flex;
 }
 
 .links a li strong {
-  font-weight: normal;
-  font-size: 1em;
-  margin-left: 5px;
+    font-weight: normal;
+    font-size: 1em;
+    margin-left: 0.2em;
 }
 
 #user {
-  color: white;
-  font-size: 1em;
-  display: flex;
-  margin: auto 2em auto 1em;
+    color: white;
+    font-size: 1em;
+    display: flex;
+    margin: auto 2em auto 1em;
 }
 
 #user strong {
-  font-weight: normal;
-  white-space: nowrap;
+    font-weight: normal;
+    white-space: nowrap;
 }
 
 #user img,
 #user svg {
-  height: 25px;
-  width: 25px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 0;
-  margin-right: 8px;
+    height: 1.5em;
+    width: 1.5em;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+    margin-right: 0.5em;
+}
+
+@media screen and (max-width: 500px) {
+    li > strong {
+        display: none;
+    }
+
+    .Navbar img {
+        height: 2em;
+    }
+
+    .links {
+        margin: auto 0;
+    }
+
+    .Navbar {
+        height: 4em;
+    }
 }

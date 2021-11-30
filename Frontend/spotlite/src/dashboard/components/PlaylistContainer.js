@@ -7,7 +7,7 @@ function PlaylistContainer({image, name, url}) {
         <div className="playlistContainer">
             <Link to={url}>
                 {image}
-                <p>{name}</p> 
+                <p>{name.substr(0, 20) + (name.length > 20 ? '...' : '')}</p>
             </Link>  
         </div>
     )

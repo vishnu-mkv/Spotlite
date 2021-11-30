@@ -1,12 +1,12 @@
 .Song {
-  display: grid;
-  color: white;
-  grid-template-columns: 50px 5fr 4fr 50px;
-  align-items: center;
-  padding: 10px 0;
-  color: gray;
-  transition: 200ms color ease-in;
-  border-bottom: 1px solid rgb(26, 24, 24);
+    display: grid;
+    color: white;
+    grid-template-columns: 3em 5fr 4fr 3em;
+    align-items: center;
+    padding: 0.7em 0;
+    color: gray;
+    transition: 200ms color ease-in;
+    border-bottom: 1px solid rgb(26, 24, 24);
 }
 
 .Song:hover {
@@ -14,18 +14,18 @@
 }
 
 .album {
-  margin-right: 50px;
-  box-sizing: border-box;
+    margin-right: 3em;
+    box-sizing: border-box;
 }
 
 .play-div {
-  width: 15px;
-  height: 15px;
-  margin: auto;
+    width: 1em;
+    height: 1em;
+    margin: auto;
 }
 
 .song_no {
-  margin: 0 -5px;
+    margin: 0 -0.3em;
 }
 
 .play-div:hover .song_no {
@@ -54,19 +54,19 @@
 }
 
 .info {
-  margin-right: 15px;
-  display: flex;
+    margin-right: 1em;
+    display: flex;
 }
 
 .track_img {
-    height: 48px;
-    margin-right: 15px;
+    height: 3em;
+    margin: auto 1em auto 0;
 }
 
 .artist {
     font-size: 0.8em;
     display: block;
-    margin: 5px 0 0;
+    margin: 0.3em 0 0;
 }
 
 .artist a {
@@ -99,6 +99,6 @@
 
 @media screen and (min-width: 700px) {
   .Song {
-    grid-template-columns: 50px 1fr 1fr 50px;
+      grid-template-columns: 3em 1fr 1fr 3em;
   }
 }

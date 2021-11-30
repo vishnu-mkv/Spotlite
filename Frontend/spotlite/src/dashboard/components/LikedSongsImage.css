@@ -1,14 +1,14 @@
 .icon svg {
-  display: block;
-  margin: auto;
-  font-size: 64px;
+    display: block;
+    margin: auto;
+    font-size: 5em;
 }
 
 .icon {
-  background-color: var(--s-green);
-  height: 150px;
-  width: 150px;
-  align-self: center;
-  display: flex;
-  flex-shrink: 0;
+    background-color: var(--s-green);
+    height: 7em;
+    width: 7em;
+    align-self: center;
+    display: flex;
+    flex-shrink: 0;
 }

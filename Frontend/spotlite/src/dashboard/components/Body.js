@@ -55,7 +55,7 @@ function Body() {
             <h2>Your Library</h2>
             <div className="liked">
                 <PlaylistContainer name="Liked Songs" url="/view/liked"
-                                   image={<LikedSongsImage height="125px" width="125px" fontSize="48px"/>}/>
+                                   image={<LikedSongsImage height="6em" width="6em" fontSize="3em"/>}/>
 
                 {
                     likedPlaylists ?

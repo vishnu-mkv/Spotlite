@@ -6,14 +6,14 @@
     display: flex;
     color: white;
     margin: 1em auto 3em;
-    max-width: 1000px;
+    max-width: 1200px;
     padding-bottom: 2em;
     border-bottom: 1px solid #313030;
 }
 
 .artist-header .MuiAvatar-root {
-    width: 150px;
-    height: 150px;
+    width: 5em;
+    height: 5em;
     margin: auto 2em;
 }
 

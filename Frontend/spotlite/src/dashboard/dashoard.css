@@ -6,6 +6,9 @@
   background-attachment: fixed;
 }
 
-.content {
-  padding: 30px;
+@media screen and (min-width: 1000px) {
+
+    .content {
+        padding: 2em;
+    }
 }
