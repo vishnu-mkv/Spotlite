@@ -37,7 +37,7 @@ function Body() {
         //removing duplicate recently played albums
         let albums = [];
         let recentAlbumsTemp = []
-        for (let i = 0; i < recent.limit; i++) {
+        for (let i = 0; i < recent.items.length; i++) {
             let track = recent.items[i].track;
             let albumId = track.album.id;
             if (!albums.includes(albumId)) {
